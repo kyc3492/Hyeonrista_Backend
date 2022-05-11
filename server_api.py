@@ -1,10 +1,12 @@
 from flask import Flask
 from flask_restx import Api, Resource
+from flask_cors import CORS
 
 import db_module, server_S3
 
 app = Flask(__name__)
 api = Api(app)
+CORS(app)
 
 @api.route('/cafes')
 class SELECT_FROM_CAFES(Resource):
