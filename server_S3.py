@@ -63,6 +63,8 @@ def create_presigned_url(object_name):
         logging.error(e)
         return None
 
+    del s3, bucket
+    print("Deleted s3, bucket")
     # The response contains the presigned URL
     return response
 

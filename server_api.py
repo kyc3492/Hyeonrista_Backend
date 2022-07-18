@@ -17,6 +17,7 @@ class SELECT_FROM_CAFES(Resource):
         for i in range(len(row)):
             row[i]['background'] = server_S3.create_presigned_url("hyeonrista/cafe" + str(i + 1) + ".jpeg")
 
+        print("Deleted sql")
         return {"cafe_list" : row}
 
     
