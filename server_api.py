@@ -21,6 +21,15 @@ class SELECT_FROM_CAFES(Resource):
         print("Deleted sql")
         return {"cafe_list" : row}
 
+@api.route('/cafe/<string:idx>')
+class SELECT_FROM_CAFE_SPECIFIC(Resource):
+    def get(self, idx):
+        sql = "SELECT * FROM usr.cafe_" + idx + ";"
+        row = db_module.get_cafe_list(sql)
+
+        del sql
+        print("Deleted sql")
+        return {"cafe_" + idx : row}
     
 if __name__ == "__main__":
     app.run(debug=True, host='0.0.0.0', port=8001)
